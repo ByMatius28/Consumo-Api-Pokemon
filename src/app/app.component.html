@@ -1,0 +1,57 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://www.pokemon.com/es/pokedex" target="_blank">
+        <img src="https://cdn.icon-icons.com/icons2/851/PNG/512/Pokedex_tool_icon-icons.com_67529.png" alt="logo">
+        <h1>PokeDex</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png" width="20" height="20" alt="logo">
+            <a routerLink="/welcome">Pokeballs</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <img src="https://images.wikidexcdn.net/mwuploads/wikidex/f/fd/latest/20230115173615/Poci%C3%B3n_EP.png" width="20" height="20" alt="logo">
+            <a>Pociones</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <img src="https://w7.pngwing.com/pngs/949/278/png-transparent-iris-kanto-rainbow-pokemon-sun-and-moon-medallas-medal-symmetry-pokemon.png" width="20" height="20" alt="logo">
+            <a>Medallas</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Gimnacios" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>Tierra</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <span class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></span>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
